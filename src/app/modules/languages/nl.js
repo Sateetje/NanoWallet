@@ -849,12 +849,12 @@ function DutchProvider($translateProvider) {
         ALERT_DNS_SUCCESS: "Informatie gevonden",
         ALERT_DNS_NO_INFO_FOUND: "Geen DNS informatie gevonden",
 
-        // IMPORT BANKUP QRCODE
-        IMPORT_BANKUP_QRCODE_TITLE: 'Importeer Wallet Bankup Qrcode',
-        IMPORT_BANKUP_QRCODE_INFORMATION: 'Ondersteuning voor Bankup Wallet Qrcode: NEM WeChat Wallet, iOS, Android.',
-        IMPORT_BANKUP_QRCODE_LOAD: 'Laadt Wallet Bankup Qrcode',
-        IMPORT_BANKUP_QRCODE_SCAN: 'Scan',
-        IMPORT_BANKUP_QRCODE_STOP_SCAN: 'Stop scannen'
+        // IMPORT WALLET QRCODE
+        IMPORT_WALLET_QRCODE_TITLE: 'Importeer portemonnee QR Code',
+        IMPORT_WALLET_QRCODE_INFORMATION: 'Ondersteuning voor portemonnee QR Code: NEM WeChat Wallet, iOS, Android.',
+        IMPORT_WALLET_QRCODE_LOAD: 'Laad portemonnee QR Code',
+        IMPORT_WALLET_QRCODE_SCAN: 'Scan',
+        IMPORT_WALLET_QRCODE_STOP_SCAN: 'Stop scannen'
     });
 
 }
