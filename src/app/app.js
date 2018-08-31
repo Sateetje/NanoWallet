@@ -5,6 +5,7 @@ import $ from 'jquery';
 import constants from './config/app.constants';
 import appConfig from './config/app.config';
 import appRun from './config/app.run';
+import nwConfig from './config/nw.js';
 
 // Import Angular modules
 import 'angular-ui-router';
@@ -43,6 +44,7 @@ import './modules/mosaics';
 import './modules/explorer';
 import './modules/importanceTransfer';
 import './modules/changelly';
+import './modules/shapeshift';
 import './modules/addressBook';
 import './modules/faq';
 import './modules/voting';
@@ -90,6 +92,7 @@ const requires = [
     'pascalprecht.translate',
     'app.lang',
     'app.changelly',
+    'app.shapeshift',
     'app.addressBook',
     'app.votingCreatePoll',
     'app.votingPolls'
@@ -99,6 +102,11 @@ window.$ = window.jQuery = $;
 
 // Load twitter bootstrap with require or jQuery is not defined
 require('bootstrap');
+
+// Apply nw.js config if using Chrome
+if (/Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor)) {
+    nwConfig();
+}
 
 // Mount on window
 window.app = angular.module('app', requires);
