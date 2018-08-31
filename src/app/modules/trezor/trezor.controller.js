@@ -106,7 +106,7 @@ class TrezorCtrl {
      * Login with TREZOR
      */
     login() {
-        this._Trezor.createWallet(this.network).then((wallet) => {
+        this._Trezor.createWallet(this.network, this.account).then((wallet) => {
             this._Login.login({}, wallet);
         }, (error) => {
             this._$timeout(() => {
