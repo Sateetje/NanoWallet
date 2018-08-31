@@ -21,7 +21,22 @@ class TrezorCtrl {
         //// End dependencies region ////
 
         //// Module properties region ////
-
+        /**
+         * List of accounts
+         */        
+		var allAccounts = {
+		    0: "#1",
+		    1: "#2",
+		    2: "#3",
+		    3: "#4",
+		    4: "#5",
+		    5: "#6",
+		    6: "#7",
+		    7: "#8",
+		    8: "#9",
+		    9: "#10"
+		};
+        
         /**
          * Default network
          *
@@ -36,6 +51,22 @@ class TrezorCtrl {
          */
         this.networks = nem.model.network.data;
 
+        /**
+         * Account
+         *
+         * @type {number}
+         */
+        this.account = 0;
+
+		/**
+         * All accounts available
+         *
+         * @type {object} - An object of objects
+         */        
+		this.accounts = Object.keys(allAccounts).map(function (key) {
+            return { id: key, text: allAccounts[key] };
+		});
+        
         //// End properties region ////
     }
 
@@ -62,6 +93,15 @@ class TrezorCtrl {
         this.network = id;
     }
 
+    /**
+     * Change account
+     *
+     * @param {number} id - Account id
+     */
+    changeAccount(id) {
+        this.account = id;
+    }
+    
     /**
      * Login with TREZOR
      */
