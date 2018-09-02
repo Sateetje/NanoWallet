@@ -22,8 +22,8 @@ class Trezor {
 
     // Service methods region //
 
-    createWallet(network, account_id) {
-        return this.createAccount(network, account_id, parseInt(account_id) + 1).then((account) => ({
+    createWallet(network, account_id, account_text) {
+        return this.createAccount(network, account_id, account_text).then((account) => ({
             "name": "TREZOR",
             "accounts": {
                 "0": account
