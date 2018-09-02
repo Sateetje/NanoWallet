@@ -28,7 +28,7 @@
         <select class="form-control"
                 ng-model="$ctrl.account"
                 ng-change="$ctrl.changeAccount($ctrl.account)"
-                ng-options="account.id as account.text for account in $ctrl.accounts">
+                ng-options="account as account.text for account in $ctrl.accounts track by account.id">
           <option value="" disabled selected>{{'TREZOR_SELECT_ACCOUNT' | translate}}</option>
         </select>
       </fieldset>      
@@ -44,5 +44,4 @@
       </div>
     </div>
   </div>
-
 </div>
