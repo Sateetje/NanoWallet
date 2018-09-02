@@ -20,23 +20,7 @@ class TrezorCtrl {
 
         //// End dependencies region ////
 
-        //// Module properties region ////
-        /**
-         * List of accounts
-         */        
-		var allAccounts = {
-		    0: "#1",
-		    1: "#2",
-		    2: "#3",
-		    3: "#4",
-		    4: "#5",
-		    5: "#6",
-		    6: "#7",
-		    7: "#8",
-		    8: "#9",
-		    9: "#10"
-		};
-        
+        //// Module properties region ////        
         /**
          * Default network
          *
@@ -54,18 +38,27 @@ class TrezorCtrl {
         /**
          * Account
          *
-         * @type {number}
+         * @type {object}
          */
-        this.account = 0;
+        this.account;
 
-		/**
+	/**
          * All accounts available
          *
-         * @type {object} - An object of objects
+         * @type {array of objects}
          */        
-		this.accounts = Object.keys(allAccounts).map(function (key) {
-            return { id: key, text: allAccounts[key] };
-		});
+	this.accounts = [
+	  {id:0,text:'#1'},
+	  {id:1,text:'#2'},
+	  {id:2,text:'#3'},
+	  {id:3,text:'#4'},
+	  {id:4,text:'#5'},
+	  {id:5,text:'#6'},
+	  {id:6,text:'#7'},
+	  {id:7,text:'#8'},
+	  {id:8,text:'#9'},
+	  {id:9,text:'#10'}
+	];
         
         //// End properties region ////
     }
@@ -96,17 +89,17 @@ class TrezorCtrl {
     /**
      * Change account
      *
-     * @param {number} id - Account id
+     * @param {object}
      */
-    changeAccount(id) {
-        this.account = id;
+    changeAccount(account) {
+        this.account = account;
     }
     
     /**
      * Login with TREZOR
      */
     login() {
-        this._Trezor.createWallet(this.network, this.account).then((wallet) => {
+        this._Trezor.createWallet(this.network, this.account.id, this.account.text).then((wallet) => {
             this._Login.login({}, wallet);
         }, (error) => {
             this._$timeout(() => {
